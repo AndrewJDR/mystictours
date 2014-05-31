@@ -481,12 +481,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   location: 48.857507,2.294989
   skybox: {fileID: 2100000, guid: 04bf19decec6043c7882d926dd169746, type: 2}
-  skyboxes:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  ovrSkybox: {fileID: 1417010443}
   cam: {fileID: 1005241126}
 --- !u!1001 &1112169853
 Prefab:
@@ -527,6 +522,26 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 745d45a3c3964174b988d7423b8ed874, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 99f7854fc4d65704e8c4d8a2150453ff, type: 2}
+    - target: {fileID: 2300000, guid: 745d45a3c3964174b988d7423b8ed874, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: d4ff0675cff242f43b06a2a654e0e11a, type: 2}
+    - target: {fileID: 2300000, guid: 745d45a3c3964174b988d7423b8ed874, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8b76631b70938704b8641f7dab4c1a31, type: 2}
+    - target: {fileID: 2300000, guid: 745d45a3c3964174b988d7423b8ed874, type: 3}
+      propertyPath: m_Materials.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: 97d6bfaf23d3f384a92c01e6c90aba6a, type: 2}
+    - target: {fileID: 2300000, guid: 745d45a3c3964174b988d7423b8ed874, type: 3}
+      propertyPath: m_Materials.Array.data[4]
+      value: 
+      objectReference: {fileID: 2100000, guid: bddefe7cccda1e749b3261772accbd53, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 745d45a3c3964174b988d7423b8ed874, type: 3}
   m_RootGameObject: {fileID: 1417010443}
@@ -689,11 +704,11 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 20e0944aee9b6e244bdcc9086d99283f, type: 2}
-  - {fileID: 2100000, guid: d5e5bdbcd88f10649a6514db13cdb949, type: 2}
-  - {fileID: 2100000, guid: b736b8c3e1f512d43a613ede20c0056c, type: 2}
-  - {fileID: 2100000, guid: 11ddd4cea9e45d847bff7b92789ee4aa, type: 2}
-  - {fileID: 2100000, guid: c3e846ac1d8bb9b4db5906f09dba6238, type: 2}
+  - {fileID: 2100000, guid: 99f7854fc4d65704e8c4d8a2150453ff, type: 2}
+  - {fileID: 2100000, guid: d4ff0675cff242f43b06a2a654e0e11a, type: 2}
+  - {fileID: 2100000, guid: 8b76631b70938704b8641f7dab4c1a31, type: 2}
+  - {fileID: 2100000, guid: 97d6bfaf23d3f384a92c01e6c90aba6a, type: 2}
+  - {fileID: 2100000, guid: bddefe7cccda1e749b3261772accbd53, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0

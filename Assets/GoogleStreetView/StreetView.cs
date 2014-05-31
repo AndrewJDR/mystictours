@@ -5,24 +5,51 @@ public class StreetView : MonoBehaviour {
 	public string location = "48.857507,2.294989";
 	
 	public Material skybox;
+	public GameObject ovrSkybox;
+
 	public Transform cam;
 
 	IEnumerator Start() {
+//		object[][] directions = new object[][] {
+//			new object[] {  0,  0, "_FrontTex"},
+//			new object[] { 90,  0, "_LeftTex"},
+//			new object[] {180,  0, "_BackTex"},
+//			new object[] {270,  0, "_RightTex"},
+//			new object[] {  0, 90, "_UpTex"},
+//			new object[] {  0,-90, "_DownTex"}
+//		};
+
+//		object[][] directions = new object[][] {
+//			new object[] {  0,  0, "SkyMAPSsunset0000"},
+//			new object[] { 90,  0, "SkyMAPSsunset0001"},
+//			new object[] {180,  0, "SkyMAPSsunset0002"},
+//			new object[] {270,  0, "SkyMAPSsunset0003"},
+//			new object[] {  0, 90, "SkyMAPSsunset0004"},
+//			new object[] {  0,-90, "SkyMAPSsunset0000"}
+//		};
+
 		object[][] directions = new object[][] {
-			new object[] {  0,  0, "_FrontTex"},
-			new object[] { 90,  0, "_LeftTex"},
-			new object[] {180,  0, "_BackTex"},
-			new object[] {270,  0, "_RightTex"},
-			new object[] {  0, 90, "_UpTex"},
-			new object[] {  0,-90, "_DownTex"}
+			new object[] {  0,  0, "SkyMAPSsunset0000"},
+			new object[] { 90,  0, "SkyMAPSsunset0001"},
+			new object[] {  0, 90, "SkyMAPSsunset0004"},
+			new object[] {180,  0, "SkyMAPSsunset0002"},
+			new object[] {270,  0, "SkyMAPSsunset0003"},
+			new object[] {  0,-90, "SkyMAPSsunset0000"}
 		};
+
+
+		var skyboxes = ovrSkybox.renderer.materials;
+		int counter = 0;
 		foreach (object[] dir in directions) {
 			WWW www = new WWW(GetURL((int)dir[0], (int)dir[1]));
 			yield return www;
 			Texture2D tex = www.texture;
 			tex.wrapMode = TextureWrapMode.Clamp;
-			skybox.SetTexture((string)dir[2], tex);
+			skyboxes[counter].mainTexture = tex;
+			counter ++;
+			//skybox.SetTexture((string)dir[2], tex);
 		}
+
 	}
 
 	string GetURL(int heading, int pitch) {
