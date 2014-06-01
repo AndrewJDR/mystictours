@@ -21,31 +21,25 @@ public class StreetView : MonoBehaviour {
 		};
 
 		foreach (object[] dir in directions) {
-			var texFolder = "Resources\\" + location.Replace(",", "_");
-			var texFile = texFolder + "\\" + dir[2] + ".png";
+			string path = Application.temporaryCachePath + "/" + location.Replace(",", "_") + (string)dir[2] + ".png";
 
-			if( System.IO.File.Exists(texFile) ) {
+			Texture2D tex;
+			if( File.Exists(path) ) {
 				// "Empty" texture. Will be replaced by LoadImage
-				Texture2D tex = new Texture2D(4,4);
-				FileStream fs = new FileStream(texFile, FileMode.Open, FileAccess.Read);
-				byte[] imageData = new byte[fs.Length];
-				fs.Read(imageData, 0, (int) fs.Length);
-				tex.LoadImage(imageData);
-				tex.wrapMode = TextureWrapMode.Clamp;
-				skybox.SetTexture((string)dir[2], tex);
-				Debug.Log("Using cached texture " + imageData);
+				tex = new Texture2D(4, 4);
+				tex.LoadImage(File.ReadAllBytes(path));
+				Debug.Log("Using cached texture " + path);
 			} else {
 				WWW www = new WWW(GetURL((int)dir[0], (int)dir[1]));
 				yield return www;
-				Texture2D tex = www.texture;
-				tex.wrapMode = TextureWrapMode.Clamp;
-				skybox.SetTexture((string)dir[2], tex);
+				tex = www.texture;
 
-				System.IO.Directory.CreateDirectory(texFolder);
 				var bytes = tex.EncodeToPNG();
-				File.WriteAllBytes( texFile, bytes );
-				Debug.Log("Using downloaded texture for " + (string)dir[2]);
+				System.IO.File.WriteAllBytes(path, bytes);
 			}
+
+			tex.wrapMode = TextureWrapMode.Clamp;
+			skybox.SetTexture((string)dir[2], tex);
 		}
 		skyboxmesh.UpdateSkybox();
 	}
