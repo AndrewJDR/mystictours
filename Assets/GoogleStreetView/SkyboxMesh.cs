@@ -5,6 +5,8 @@ using System.Collections;
 
 public class SkyboxMesh : MonoBehaviour
 {
+	public Texture2D[] defaultTextures;
+
 	public enum Shape {
 		Sphere,
 		Cube,
@@ -46,7 +48,23 @@ public class SkyboxMesh : MonoBehaviour
 	public Shape		shape		= Shape.Sphere;
 	public Material		skybox;
 	public GameObject	follow;
-	
+
+	void Awake()
+	{
+// trying to setup default sky while images are loading from google
+//		if( this.material == null ) {
+//			this.material = new Material( _shaderText );
+//		}
+//		
+//		Mesh mesh = _CreateMesh();
+//		_CreatePlane( mesh, "_FrontTex", Quaternion.identity, defaultTextures[0] );
+//		_CreatePlane( mesh, "_LeftTex",  Quaternion.Euler( 0.0f, 90.0f, 0.0f ), defaultTextures[1] );
+//		_CreatePlane( mesh, "_BackTex",  Quaternion.Euler( 0.0f, 180.0f, 0.0f ), defaultTextures[2] );
+//		_CreatePlane( mesh, "_RightTex", Quaternion.Euler( 0.0f, 270.0f, 0.0f ), defaultTextures[3] );
+//		_CreatePlane( mesh, "_UpTex",    Quaternion.Euler( -90.0f, 0.0f, 0.0f ), defaultTextures[4] );
+//		_CreatePlane( mesh, "_DownTex",  Quaternion.Euler( 90.0f, 0.0f, 0.0f ), defaultTextures[5] );
+	}
+
 	public void UpdateSkybox()
 	{
 		if( this.material == null ) {
@@ -156,7 +174,7 @@ public class SkyboxMesh : MonoBehaviour
 		return mesh;
 	}
 	
-	void _CreatePlane( Mesh mesh, string textureName, Quaternion rotation )
+	void _CreatePlane( Mesh mesh, string textureName, Quaternion rotation, Texture2D texture = null )
 	{
 		GameObject go = new GameObject();
 		go.name = textureName;
@@ -165,7 +183,10 @@ public class SkyboxMesh : MonoBehaviour
 		go.transform.localScale = new Vector3( this.radius, this.radius, this.radius );
 		go.transform.localRotation = rotation;
 		Material material = new Material( this.material );
-		material.mainTexture = skybox.GetTexture( textureName );
+
+		if (texture!=null) material.mainTexture = texture;
+		else material.mainTexture = skybox.GetTexture( textureName );
+
 		MeshRenderer meshRenderer = go.AddComponent< MeshRenderer >();
 		meshRenderer.material = material;
 		meshRenderer.castShadows = false;
