@@ -853,15 +853,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   locations:
-  - name: Paris
-    location: 48.857507,2.294989
-    audio: {fileID: 8300000, guid: 6ca74a68fdcb843a184061e020b7b7a2, type: 3}
+  - name: Colosseum Start
+    location: 41.890408,12.491006
+    audio: {fileID: 8300000, guid: 69f121aa6aac82f41876fb647c8ac2ab, type: 3}
     ambient: {fileID: 8300000, guid: 510e48e6a56a94c75914cf4ed443be74, type: 3}
     ambientVolume: .490999997
     pointsPrefab: {fileID: 100002, guid: 4620db8c1978049f5aa01469bf354969, type: 2}
-  - name: Pisa
-    location: 43.722428,10.396658
-    audio: {fileID: 8300000, guid: c387ff1c8284645c1b8ed9bff4f8993c, type: 3}
+  - name: Colosseum Arena
+    location: 41.890478,12.491614
+    audio: {fileID: 8300000, guid: 7cfca0831c4424a49a78da3f563997da, type: 3}
+    ambient: {fileID: 8300000, guid: 510e48e6a56a94c75914cf4ed443be74, type: 3}
+    ambientVolume: 1
+    pointsPrefab: {fileID: 0}
+  - name: Colosseum Games
+    location: 41.889817,12.492176
+    audio: {fileID: 8300000, guid: 7cfca0831c4424a49a78da3f563997da, type: 3}
     ambient: {fileID: 8300000, guid: 510e48e6a56a94c75914cf4ed443be74, type: 3}
     ambientVolume: 1
     pointsPrefab: {fileID: 0}
