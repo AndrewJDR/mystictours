@@ -366,7 +366,7 @@ MonoBehaviour:
         fsmStringParams: []
         fsmObjectParams: []
         fsmVarParams: []
-        byteData: 0000803f0000000070410000
+        byteData: 000040400000000070410000
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
@@ -444,7 +444,7 @@ MonoBehaviour:
           showInInspector: 0
           networkSync: 0
           typeName: UnityEngine.MonoBehaviour
-          value: {fileID: 0}
+          value: {fileID: 1578816335}
         fsmVarParams:
         - variableName: 
           useVariable: 1
@@ -548,7 +548,7 @@ MonoBehaviour:
           showInInspector: 0
           networkSync: 0
           typeName: UnityEngine.MonoBehaviour
-          value: {fileID: 0}
+          value: {fileID: 1578816335}
         fsmVarParams:
         - variableName: 
           useVariable: 1
@@ -1104,20 +1104,20 @@ MonoBehaviour:
     ambient: {fileID: 8300000, guid: 280189fcb0b9a48d7887febefdbe8398, type: 3}
     ambientVolume: .490999997
     pointsPrefab: {fileID: 100000, guid: acdd4a8d9f2064f278d48f915de185e7, type: 2}
-  - name: Colosseum Arena
-    location: 41.890478,12.491614&pano=116405375277701596294
-    panoid: 
-    audio: {fileID: 8300000, guid: 7cfca0831c4424a49a78da3f563997da, type: 3}
-    ambient: {fileID: 8300000, guid: 280189fcb0b9a48d7887febefdbe8398, type: 3}
+  - name: Colosseum 2
+    location: SKvAl7opWo4AAAQINSgaXw
+    panoid: SKvAl7opWo4AAAQINSgaXw
+    audio: {fileID: 8300000, guid: c7fff1062349449308731f94519e6ba7, type: 3}
+    ambient: {fileID: 8300000, guid: 60f493ab0d5914127adb075fad989538, type: 3}
     ambientVolume: .523000002
-    pointsPrefab: {fileID: 100000, guid: a7098f534a0574185b9a338b5d11f157, type: 2}
-  - name: Colosseum Games
-    location: 41.889817,12.492176&pano=116405375277701596294
-    panoid: 
-    audio: {fileID: 8300000, guid: 7cfca0831c4424a49a78da3f563997da, type: 3}
-    ambient: {fileID: 8300000, guid: 280189fcb0b9a48d7887febefdbe8398, type: 3}
+    pointsPrefab: {fileID: 100000, guid: 4132fa44b2a334880bfacf2fd806d7eb, type: 2}
+  - name: Colosseum 3
+    location: s_gp6t31-9IAAAGun7jcuQ
+    panoid: s_gp6t31-9IAAAGun7jcuQ
+    audio: {fileID: 8300000, guid: fd31a45b60e104c6998cb47bcd7054ef, type: 3}
+    ambient: {fileID: 8300000, guid: c5d631fffdfb740ada9e3aa70841e35f, type: 3}
     ambientVolume: .5
-    pointsPrefab: {fileID: 100000, guid: 62ebc1c56123a4a828228fddd1c94db7, type: 2}
+    pointsPrefab: {fileID: 100000, guid: 3c26de1efd71c4135a4291f81209d9d5, type: 2}
   currentIndex: 0
 --- !u!114 &1578816336
 MonoBehaviour:
