@@ -4,6 +4,7 @@ using System.IO;
 
 public class StreetView : MonoBehaviour {
 	public string location = "48.857507,2.294989";
+	public string panoId = "";
 	
 	public Material skybox;
 	public SkyboxMesh skyboxmesh;
@@ -15,7 +16,7 @@ public class StreetView : MonoBehaviour {
 	}
 
 	IEnumerator LoadImages() {
-		Debug.Log ("Loading location " + location);
+		Debug.Log ("Loading location " + location + "pano: " + panoId);
 		object[][] directions = new object[][] {
 			new object[] {  0,  0, "_FrontTex"},
 			new object[] { 90,  0, "_LeftTex"},
@@ -71,8 +72,13 @@ public class StreetView : MonoBehaviour {
 	}
 
 	string GetURL(int heading, int pitch) {
-		Debug.Log("Pulling from URL" + "http://maps.googleapis.com/maps/api/streetview?size=2048x2048&heading=" + heading + "&pitch=" + pitch + "&location=" + location + "&sensor=false&key=AIzaSyDwBD-NA5aTL2ICnoxwmRlvNK__IdE5_v0");
-		return "http://maps.googleapis.com/maps/api/streetview?size=2048x2048&heading=" + heading + "&pitch=" + pitch + "&location=" + location + "&sensor=false&key=AIzaSyDwBD-NA5aTL2ICnoxwmRlvNK__IdE5_v0";
+		if (string.IsNullOrEmpty(panoId)) {
+			Debug.Log("Pulling from URL" + "http://maps.googleapis.com/maps/api/streetview?size=2048x2048&heading=" + heading + "&pitch=" + pitch + "&location=" + location + "&sensor=false&key=AIzaSyDwBD-NA5aTL2ICnoxwmRlvNK__IdE5_v0");
+			return "http://maps.googleapis.com/maps/api/streetview?size=2048x2048&heading=" + heading + "&pitch=" + pitch + "&location=" + location + "&sensor=false&key=AIzaSyDwBD-NA5aTL2ICnoxwmRlvNK__IdE5_v0";
+		} else {
+			print ("http://maps.googleapis.com/maps/api/streetview?size=2048x2048&heading=" + heading + "&pitch=" + pitch + "&pano=" + location + "&sensor=false&key=AIzaSyDwBD-NA5aTL2ICnoxwmRlvNK__IdE5_v0");
+			return "http://maps.googleapis.com/maps/api/streetview?size=2048x2048&heading=" + heading + "&pitch=" + pitch + "&pano=" + panoId + "&sensor=false&key=AIzaSyDwBD-NA5aTL2ICnoxwmRlvNK__IdE5_v0";
+		}
 	}
 
 

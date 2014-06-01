@@ -10,6 +10,7 @@ public class Tour : MonoBehaviour {
 	public class Location {
 		public string name;
 		public string location;
+		public string panoid;
 		public AudioClip audio, ambient;
 		[Range(0, 1)]
 		public float ambientVolume = 1f;
@@ -18,14 +19,16 @@ public class Tour : MonoBehaviour {
 
 	public Location[] locations;
 
-	public int currentIndex {
-		get {
-			return PlayerPrefs.GetInt("current_location", 0) % locations.Length;
-		}
-		set {
-			PlayerPrefs.SetInt("current_location", value % locations.Length);
-		}
-	}
+	public int currentIndex = 0;
+
+//	public int currentIndex {
+//		get {
+//			return PlayerPrefs.GetInt("current_location", 0) % locations.Length;
+//		}
+//		set {
+//			PlayerPrefs.SetInt("current_location", value % locations.Length);
+//		}
+//	}
 
 	public void Init() {
 		ChangeLocation();
@@ -89,6 +92,7 @@ public class Tour : MonoBehaviour {
 
 		StreetView streetView = GetComponent<StreetView>();
 		streetView.location = locations[currentIndex].location;
+		streetView.panoId = locations[currentIndex].panoid;
 		streetView.Load();
 		if (prefabInstance) {
 			Destroy(prefabInstance);

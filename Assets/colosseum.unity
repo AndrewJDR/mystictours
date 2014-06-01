@@ -444,7 +444,7 @@ MonoBehaviour:
           showInInspector: 0
           networkSync: 0
           typeName: UnityEngine.MonoBehaviour
-          value: {fileID: 1019211528}
+          value: {fileID: 0}
         fsmVarParams:
         - variableName: 
           useVariable: 1
@@ -548,7 +548,7 @@ MonoBehaviour:
           showInInspector: 0
           networkSync: 0
           typeName: UnityEngine.MonoBehaviour
-          value: {fileID: 1019211528}
+          value: {fileID: 0}
         fsmVarParams:
         - variableName: 
           useVariable: 1
@@ -956,81 +956,6 @@ Skybox:
   m_GameObject: {fileID: 1005241121}
   m_Enabled: 0
   m_CustomSkybox: {fileID: 2100000, guid: 04bf19decec6043c7882d926dd169746, type: 2}
---- !u!1 &1019211525
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1019211526}
-  - 114: {fileID: 1019211527}
-  - 114: {fileID: 1019211528}
-  m_Layer: 0
-  m_Name: StreetView
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1019211526
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1019211525}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
---- !u!114 &1019211527
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1019211525}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc2adcd2e5b9d4bf0b4c39022e0a6173, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  location: 48.857507,2.294989
-  skybox: {fileID: 2100000, guid: 04bf19decec6043c7882d926dd169746, type: 2}
-  skyboxmesh: {fileID: 282271975}
-  cam: {fileID: 1005241126}
-  jumpCam: {fileID: 1793310746}
---- !u!114 &1019211528
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1019211525}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d645946776e0946a88e62a45548b1cc1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ovrCameraController: {fileID: 970058092}
-  locations:
-  - name: Colosseum Start
-    location: 41.890408,12.491006
-    audio: {fileID: 8300000, guid: 69f121aa6aac82f41876fb647c8ac2ab, type: 3}
-    ambient: {fileID: 8300000, guid: 280189fcb0b9a48d7887febefdbe8398, type: 3}
-    ambientVolume: .490999997
-    pointsPrefab: {fileID: 100000, guid: 736b8953750774feb9308e9c03db6cdc, type: 2}
-  - name: Colosseum Arena
-    location: 41.890478,12.491614
-    audio: {fileID: 8300000, guid: 7cfca0831c4424a49a78da3f563997da, type: 3}
-    ambient: {fileID: 8300000, guid: 280189fcb0b9a48d7887febefdbe8398, type: 3}
-    ambientVolume: .523000002
-    pointsPrefab: {fileID: 100000, guid: a7098f534a0574185b9a338b5d11f157, type: 2}
-  - name: Colosseum Games
-    location: 41.889817,12.492176
-    audio: {fileID: 8300000, guid: 7cfca0831c4424a49a78da3f563997da, type: 3}
-    ambient: {fileID: 8300000, guid: 280189fcb0b9a48d7887febefdbe8398, type: 3}
-    ambientVolume: .5
-    pointsPrefab: {fileID: 100000, guid: 62ebc1c56123a4a828228fddd1c94db7, type: 2}
 --- !u!1 &1149530204
 GameObject:
   m_ObjectHideFlags: 0
@@ -1142,6 +1067,86 @@ Camera:
   m_TargetTexture: {fileID: 0}
   m_HDR: 0
   m_OcclusionCulling: 1
+--- !u!1 &1578816334
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1578816337}
+  - 114: {fileID: 1578816336}
+  - 114: {fileID: 1578816335}
+  m_Layer: 0
+  m_Name: StreetView
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1578816335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1578816334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d645946776e0946a88e62a45548b1cc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ovrCameraController: {fileID: 970058092}
+  locations:
+  - name: Colosseum Start
+    location: Kfvy8Zn5LYYAAAQJM9msaQ
+    panoid: Kfvy8Zn5LYYAAAQJM9msaQ
+    audio: {fileID: 8300000, guid: 69f121aa6aac82f41876fb647c8ac2ab, type: 3}
+    ambient: {fileID: 8300000, guid: 280189fcb0b9a48d7887febefdbe8398, type: 3}
+    ambientVolume: .490999997
+    pointsPrefab: {fileID: 100000, guid: 736b8953750774feb9308e9c03db6cdc, type: 2}
+  - name: Colosseum Arena
+    location: 41.890478,12.491614&pano=116405375277701596294
+    panoid: 
+    audio: {fileID: 8300000, guid: 7cfca0831c4424a49a78da3f563997da, type: 3}
+    ambient: {fileID: 8300000, guid: 280189fcb0b9a48d7887febefdbe8398, type: 3}
+    ambientVolume: .523000002
+    pointsPrefab: {fileID: 100000, guid: a7098f534a0574185b9a338b5d11f157, type: 2}
+  - name: Colosseum Games
+    location: 41.889817,12.492176&pano=116405375277701596294
+    panoid: 
+    audio: {fileID: 8300000, guid: 7cfca0831c4424a49a78da3f563997da, type: 3}
+    ambient: {fileID: 8300000, guid: 280189fcb0b9a48d7887febefdbe8398, type: 3}
+    ambientVolume: .5
+    pointsPrefab: {fileID: 100000, guid: 62ebc1c56123a4a828228fddd1c94db7, type: 2}
+  currentIndex: 0
+--- !u!114 &1578816336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1578816334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc2adcd2e5b9d4bf0b4c39022e0a6173, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  location: 48.857507,2.294989
+  panoId: Kfvy8Zn5LYYAAAQJM9msaQ
+  skybox: {fileID: 2100000, guid: 04bf19decec6043c7882d926dd169746, type: 2}
+  skyboxmesh: {fileID: 282271975}
+  cam: {fileID: 1005241126}
+  jumpCam: {fileID: 1793310746}
+--- !u!4 &1578816337
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1578816334}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
 --- !u!1 &1793310745
 GameObject:
   m_ObjectHideFlags: 0
