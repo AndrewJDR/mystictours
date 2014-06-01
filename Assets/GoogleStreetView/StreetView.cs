@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.IO;
 
 public class StreetView : MonoBehaviour {
 	public string location = "48.857507,2.294989";
@@ -20,11 +21,31 @@ public class StreetView : MonoBehaviour {
 		};
 
 		foreach (object[] dir in directions) {
-			WWW www = new WWW(GetURL((int)dir[0], (int)dir[1]));
-			yield return www;
-			Texture2D tex = www.texture;
-			tex.wrapMode = TextureWrapMode.Clamp;
-			skybox.SetTexture((string)dir[2], tex);
+			var texFolder = "Resources\\" + location.Replace(",", "_");
+			var texFile = texFolder + "\\" + dir[2] + ".png";
+
+			if( System.IO.File.Exists(texFile) ) {
+				// "Empty" texture. Will be replaced by LoadImage
+				Texture2D tex = new Texture2D(4,4);
+				FileStream fs = new FileStream(texFile, FileMode.Open, FileAccess.Read);
+				byte[] imageData = new byte[fs.Length];
+				fs.Read(imageData, 0, (int) fs.Length);
+				tex.LoadImage(imageData);
+				tex.wrapMode = TextureWrapMode.Clamp;
+				skybox.SetTexture((string)dir[2], tex);
+				Debug.Log("Using cached texture " + imageData);
+			} else {
+				WWW www = new WWW(GetURL((int)dir[0], (int)dir[1]));
+				yield return www;
+				Texture2D tex = www.texture;
+				tex.wrapMode = TextureWrapMode.Clamp;
+				skybox.SetTexture((string)dir[2], tex);
+
+				System.IO.Directory.CreateDirectory(texFolder);
+				var bytes = tex.EncodeToPNG();
+				File.WriteAllBytes( texFile, bytes );
+				Debug.Log("Using downloaded texture for " + (string)dir[2]);
+			}
 		}
 		skyboxmesh.UpdateSkybox();
 	}
