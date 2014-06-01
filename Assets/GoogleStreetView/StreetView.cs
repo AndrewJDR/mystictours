@@ -8,7 +8,7 @@ public class StreetView : MonoBehaviour {
 	public Material skybox;
 	public SkyboxMesh skyboxmesh;
 
-	public Transform cam;
+	public Transform cam, jumpCam;
 
 	public void Load() {
 		StartCoroutine(LoadImages());
@@ -111,7 +111,9 @@ public class StreetView : MonoBehaviour {
 			jump = v >= 0;
 			if (!jump)
 				v = 0;
-			cam.localPosition = new Vector3(0, v);
+			Vector3 p = jumpCam.localPosition;
+			p.y = v;
+			jumpCam.localPosition = p;
 			jumpTime+= Time.deltaTime * 5;
 		}
 	}
