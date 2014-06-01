@@ -216,6 +216,18 @@ public class OVRCameraController : OVRComponent
 		else
 			OrientationOffset = transform.rotation;
 	}
+
+	public void Follow(Transform transform) 
+	{
+		FollowOrientation = transform;
+
+		if(FollowOrientation != null) {
+			OrientationOffset = FollowOrientation.rotation;
+			// Initialize the cameras
+			UpdateCamerasDirtyFlag = true;
+			UpdateCameras();
+		}
+	}
 	
 	// InitCameras
 	void UpdateCameras()

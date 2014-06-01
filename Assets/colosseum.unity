@@ -1024,13 +1024,13 @@ MonoBehaviour:
     audio: {fileID: 8300000, guid: 7cfca0831c4424a49a78da3f563997da, type: 3}
     ambient: {fileID: 8300000, guid: 280189fcb0b9a48d7887febefdbe8398, type: 3}
     ambientVolume: .523000002
-    pointsPrefab: {fileID: 100000, guid: 736b8953750774feb9308e9c03db6cdc, type: 2}
+    pointsPrefab: {fileID: 100000, guid: a7098f534a0574185b9a338b5d11f157, type: 2}
   - name: Colosseum Games
     location: 41.889817,12.492176
     audio: {fileID: 8300000, guid: 7cfca0831c4424a49a78da3f563997da, type: 3}
     ambient: {fileID: 8300000, guid: 280189fcb0b9a48d7887febefdbe8398, type: 3}
-    ambientVolume: 1
-    pointsPrefab: {fileID: 100000, guid: 736b8953750774feb9308e9c03db6cdc, type: 2}
+    ambientVolume: .5
+    pointsPrefab: {fileID: 100000, guid: 62ebc1c56123a4a828228fddd1c94db7, type: 2}
 --- !u!1 &1149530204
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,6 +4,7 @@ using System.Collections;
 public class Tour : MonoBehaviour {
 	AudioSource audioSource, ambientAudioSource;
 	GameObject prefabInstance;
+	public OVRCameraController ovrCameraController;
 
 	[System.Serializable]
 	public class Location {
@@ -93,7 +94,9 @@ public class Tour : MonoBehaviour {
 			Destroy(prefabInstance);
 			prefabInstance = null;
 		}
-		if (locations[currentIndex].pointsPrefab)
+		if (locations[currentIndex].pointsPrefab) {
 			prefabInstance = (GameObject)Instantiate(locations[currentIndex].pointsPrefab);
+			ovrCameraController.Follow(prefabInstance.transform);
+		}
 	}
 }
