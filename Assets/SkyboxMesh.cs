@@ -47,7 +47,7 @@ public class SkyboxMesh : MonoBehaviour
 	public Material		skybox;
 	public GameObject	follow;
 	
-	void Awake()
+	public void UpdateSkybox()
 	{
 		if( this.material == null ) {
 			this.material = new Material( _shaderText );
