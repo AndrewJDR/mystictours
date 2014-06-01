@@ -368,7 +368,7 @@ MonoBehaviour:
         fsmStringParams: []
         fsmObjectParams: []
         fsmVarParams: []
-        byteData: 0000803f00000000803f0000
+        byteData: 0000a04000000000803f0000
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
@@ -1009,6 +1009,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   location: 48.857507,2.294989
+  panoId: 
   skybox: {fileID: 2100000, guid: 04bf19decec6043c7882d926dd169746, type: 2}
   skyboxmesh: {fileID: 282271975}
   cam: {fileID: 1005241126}
@@ -1024,25 +1025,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d645946776e0946a88e62a45548b1cc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ovrCameraController: {fileID: 0}
   locations:
-  - name: Underwater Tortoises
-    location: -0.914168,-89.438126
-    audio: {fileID: 8300000, guid: 0c1c211f135aac845b93dd8d1c2b5389, type: 3}
-    ambient: {fileID: 8300000, guid: 885968b6a792a4d43ac60b51221c6dff, type: 3}
-    ambientVolume: .0920000002
-    pointsPrefab: {fileID: 0}
   - name: Fish
     location: -1.239696,-90.384626
+    panoid: 
     audio: {fileID: 8300000, guid: 67808770f2fde7c44b699430e55d6697, type: 3}
     ambient: {fileID: 8300000, guid: a055fd045e04e9a42b8be360be198bc1, type: 3}
-    ambientVolume: .5
+    ambientVolume: .699999988
     pointsPrefab: {fileID: 0}
   - name: Sea lions
     location: -1.239203,-90.385735
+    panoid: 
     audio: {fileID: 8300000, guid: a2987eb26d479e14ea5773bea248442c, type: 3}
     ambient: {fileID: 8300000, guid: a055fd045e04e9a42b8be360be198bc1, type: 3}
-    ambientVolume: .5
+    ambientVolume: .699999988
     pointsPrefab: {fileID: 0}
+  currentIndex: 0
 --- !u!1 &1149530204
 GameObject:
   m_ObjectHideFlags: 0
