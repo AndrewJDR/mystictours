@@ -68,19 +68,24 @@ public class Tour : MonoBehaviour {
 	}
 
 	public void StopAmbientAudio() {
-		float volume = ambientAudioSource.volume;
-		Tween.Value(1).OnUpdate((f) => {
-			if (ambientAudioSource)
-				ambientAudioSource.volume = (1 - f) * volume;
-		}).OnComplete(() => {
-			if (ambientAudioSource) {
-				ambientAudioSource.Stop();
-				ambientAudioSource = null;
-			}
-		}).Start();
+		if (ambientAudioSource != null) {
+			float volume = ambientAudioSource.volume;
+			Tween.Value(1).OnUpdate((f) => {
+				if (ambientAudioSource)
+					ambientAudioSource.volume = (1 - f) * volume;
+			}).OnComplete(() => {
+				if (ambientAudioSource) {
+					ambientAudioSource.Stop();
+					ambientAudioSource = null;
+				}
+			}).Start();
+		}
 	}
 
 	void ChangeLocation() {
+		StopAudio();
+		StopAmbientAudio();
+
 		StreetView streetView = GetComponent<StreetView>();
 		streetView.location = locations[currentIndex].location;
 		streetView.Load();

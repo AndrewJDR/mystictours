@@ -101,13 +101,22 @@ public class StreetView : MonoBehaviour {
 			rotation.y = (savedRotation.y + dy) % 360;
 			prevPosition = Input.mousePosition;
 		}
+
+		if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.UpArrow)) {
+			PlayMakerFSM.BroadcastEvent("NextLocation");
+		}
+
+		if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.DownArrow)) {
+			PlayMakerFSM.BroadcastEvent("PreviousLocation");
+		}
+
 		// Jump
 		if (!jump && Input.GetKeyDown(KeyCode.Space)) {
 			jump = true;
 			jumpTime = 0;
 		}
 		if (jump) {
-			float v = Mathf.Sin (jumpTime) * 5; // jump height
+			float v = Mathf.Sin (jumpTime) * 10; // jump height
 			jump = v >= 0;
 			if (!jump)
 				v = 0;
