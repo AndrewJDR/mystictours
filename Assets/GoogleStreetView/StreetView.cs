@@ -68,7 +68,7 @@ public class StreetView : MonoBehaviour {
 	}
 
 	string GetURL(int heading, int pitch) {
-		return "http://maps.googleapis.com/maps/api/streetview?size=640x640&location=" + location + "&heading=" + heading + "&pitch=" + pitch + "&sensor=false";
+		return "http://maps.googleapis.com/maps/api/streetview?size=2048x2048&location=" + location + "&heading=" + heading + "&pitch=" + pitch + "&sensor=false&key=AIzaSyDwBD-NA5aTL2ICnoxwmRlvNK__IdE5_v0";
 	}
 
 
