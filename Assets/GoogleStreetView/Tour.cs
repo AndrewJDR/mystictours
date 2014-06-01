@@ -36,11 +36,13 @@ public class Tour : MonoBehaviour {
 
 	public void Next() {
 		currentIndex++;
+		if (currentIndex >= locations.Length) currentIndex = 0;
 		ChangeLocation();
 	}
 
 	public void Prev() {
 		currentIndex--;
+		if (currentIndex<0)currentIndex = 0;
 		ChangeLocation();
 	}
 
