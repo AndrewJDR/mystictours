@@ -366,7 +366,7 @@ MonoBehaviour:
         fsmStringParams: []
         fsmObjectParams: []
         fsmVarParams: []
-        byteData: 0000803f00000000803f0000
+        byteData: 0000803f0000000070410000
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
@@ -1103,7 +1103,7 @@ MonoBehaviour:
     audio: {fileID: 8300000, guid: 69f121aa6aac82f41876fb647c8ac2ab, type: 3}
     ambient: {fileID: 8300000, guid: 280189fcb0b9a48d7887febefdbe8398, type: 3}
     ambientVolume: .490999997
-    pointsPrefab: {fileID: 100000, guid: 736b8953750774feb9308e9c03db6cdc, type: 2}
+    pointsPrefab: {fileID: 100000, guid: acdd4a8d9f2064f278d48f915de185e7, type: 2}
   - name: Colosseum Arena
     location: 41.890478,12.491614&pano=116405375277701596294
     panoid: 
