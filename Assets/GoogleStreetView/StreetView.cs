@@ -75,7 +75,8 @@ public class StreetView : MonoBehaviour {
 	// Rotation
 	Vector3 speed = Vector3.zero;
 	Vector3 rotation = new Vector3(0, 300, 0), savedRotation, touchPosition, prevPosition;
-	bool touchDown = false;
+	bool touchDown = false, jump = false;
+	float jumpTime = 0;
 
 	void Update() {
 		if (!touchDown) {
@@ -99,6 +100,19 @@ public class StreetView : MonoBehaviour {
 			rotation.x = (savedRotation.x + dx) % 360;
 			rotation.y = (savedRotation.y + dy) % 360;
 			prevPosition = Input.mousePosition;
+		}
+		// Jump
+		if (!jump && Input.GetKeyDown(KeyCode.Space)) {
+			jump = true;
+			jumpTime = 0;
+		}
+		if (jump) {
+			float v = Mathf.Sin (jumpTime) * 5; // jump height
+			jump = v >= 0;
+			if (!jump)
+				v = 0;
+			cam.localPosition = new Vector3(0, v);
+			jumpTime+= Time.deltaTime * 5;
 		}
 	}
 

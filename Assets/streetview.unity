@@ -135,7 +135,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 9da535ecc7e009544bd58323d6696a4d, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9da535ecc7e009544bd58323d6696a4d, type: 2}
@@ -310,7 +310,7 @@ MonoBehaviour:
         width: 100
         height: 32
       isBreakpoint: 0
-      isSequence: 0
+      isSequence: 1
       hideUnused: 0
       transitions:
       - fsmEvent:
@@ -323,13 +323,21 @@ MonoBehaviour:
         colorIndex: 0
       actionData:
         actionNames:
+        - HutongGames.PlayMaker.Actions.PlayAmbientAudio
+        - HutongGames.PlayMaker.Actions.Wait
         - HutongGames.PlayMaker.Actions.PlayAudio
+        - HutongGames.PlayMaker.Actions.Wait
+        - HutongGames.PlayMaker.Actions.StopAmbientAudio
         customNames:
         - 
-        actionEnabled: 01
-        actionIsOpen: 01
-        actionStartIndex: 00000000
-        actionHashCodes: 00000000
+        - 
+        - 
+        - 
+        - 
+        actionEnabled: 0101010101
+        actionIsOpen: 0101010101
+        actionStartIndex: 0000000000000000030000000300000006000000
+        actionHashCodes: 000000003708ec1a000000003708ec1a00000000
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams: []
@@ -342,15 +350,21 @@ MonoBehaviour:
         fsmStringParams: []
         fsmObjectParams: []
         fsmVarParams: []
-        byteData: 
+        byteData: 0000803f00000000803f0000
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 
-        paramName: []
-        paramDataPos: 
-        paramByteDataSize: 
+        paramDataType: 0f00000017000000010000000f0000001700000001000000
+        paramName:
+        - time
+        - finishEvent
+        - realTime
+        - time
+        - finishEvent
+        - realTime
+        paramDataPos: 000000000500000005000000060000000b0000000b000000
+        paramByteDataSize: 050000000000000001000000050000000000000001000000
     - name: Next Location
       description: 
       colorIndex: 0
@@ -636,7 +650,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &970058090
 Transform:
   m_ObjectHideFlags: 0
@@ -709,11 +723,11 @@ GameObject:
   - 45: {fileID: 1005241127}
   m_Layer: 0
   m_Name: Main Camera
-  m_TagString: MainCamera
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!81 &1005241122
 AudioListener:
   m_ObjectHideFlags: 0
@@ -841,9 +855,13 @@ MonoBehaviour:
   - name: Paris
     location: 48.857507,2.294989
     audio: {fileID: 8300000, guid: 6ca74a68fdcb843a184061e020b7b7a2, type: 3}
+    ambient: {fileID: 8300000, guid: 510e48e6a56a94c75914cf4ed443be74, type: 3}
+    ambientVolume: .490999997
   - name: Pisa
     location: 43.722428,10.396658
     audio: {fileID: 8300000, guid: c387ff1c8284645c1b8ed9bff4f8993c, type: 3}
+    ambient: {fileID: 8300000, guid: 510e48e6a56a94c75914cf4ed443be74, type: 3}
+    ambientVolume: 1
 --- !u!1 &1149530204
 GameObject:
   m_ObjectHideFlags: 0

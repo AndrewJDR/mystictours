@@ -36,4 +36,23 @@ namespace HutongGames.PlayMaker.Actions {
 			tour.PlayAudio(Finish);
 		}
 	}
+
+	[ActionCategory("Tour")]
+	public class PlayAmbientAudio : FsmStateAction {
+		public override void OnEnter() {
+			Tour tour = GameObject.FindObjectOfType<Tour>();
+			tour.PlayAmbientAudio();
+			Finish();
+		}
+	}
+	
+	[ActionCategory("Tour")]
+	public class StopAmbientAudio : FsmStateAction {
+		public override void OnEnter() {
+			Tour tour = GameObject.FindObjectOfType<Tour>();
+			tour.StopAmbientAudio();
+			Finish();
+		}
+	}
+	
 }
