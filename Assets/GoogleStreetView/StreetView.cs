@@ -21,21 +21,39 @@ public class StreetView : MonoBehaviour {
 		};
 
 		foreach (object[] dir in directions) {
-			string path = Application.temporaryCachePath + "/" + location.Replace(",", "_") + (string)dir[2] + ".png";
+			string path = "Cache/" + location.Replace(",", "_") + (string)dir[2];
+			string cachePath = Application.temporaryCachePath + "/" + location.Replace(",", "_") + (string)dir[2] + ".png";
 
-			Texture2D tex;
-			if( File.Exists(path) ) {
-				// "Empty" texture. Will be replaced by LoadImage
-				tex = new Texture2D(4, 4);
-				tex.LoadImage(File.ReadAllBytes(path));
-				Debug.Log("Using cached texture " + path);
-			} else {
-				WWW www = new WWW(GetURL((int)dir[0], (int)dir[1]));
-				yield return www;
-				tex = www.texture;
+			#if UNITY_EDITOR
+			if (!Directory.Exists("Assets/Resources"))
+				Directory.CreateDirectory("Assets/Resources");
+			if (!Directory.Exists("Assets/Resources/Cache"))
+				Directory.CreateDirectory("Assets/Resources/Cache");
+			#endif
 
-				var bytes = tex.EncodeToPNG();
-				System.IO.File.WriteAllBytes(path, bytes);
+			// read from resources
+			Texture2D tex = Resources.Load<Texture2D>(path);
+			if (tex == null) {
+
+				if (File.Exists(cachePath)) {
+					Debug.Log(cachePath);
+					// read from cache
+					tex = new Texture2D(2, 2);
+					tex.LoadImage(File.ReadAllBytes(cachePath));
+				} else {
+					// download
+					WWW www = new WWW(GetURL((int)dir[0], (int)dir[1]));
+					yield return www;
+					tex = www.texture;
+
+					var bytes = tex.EncodeToPNG();
+					#if UNITY_EDITOR
+					System.IO.File.WriteAllBytes("Assets/Resources/" + path + ".png", bytes);
+					#else
+					System.IO.File.WriteAllBytes(cachePath, bytes);
+					#endif
+				}
+
 			}
 
 			tex.wrapMode = TextureWrapMode.Clamp;
