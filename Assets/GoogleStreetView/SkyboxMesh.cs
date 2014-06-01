@@ -48,6 +48,7 @@ public class SkyboxMesh : MonoBehaviour
 	public Shape		shape		= Shape.Sphere;
 	public Material		skybox;
 	public GameObject	follow;
+	Mesh mesh;
 
 	void Awake()
 	{
@@ -70,8 +71,17 @@ public class SkyboxMesh : MonoBehaviour
 		if( this.material == null ) {
 			this.material = new Material( _shaderText );
 		}
-		
-		Mesh mesh = _CreateMesh();
+
+		foreach (Transform t in transform) {
+			MeshRenderer renderer = t.GetComponent<MeshRenderer>();
+			if (renderer.sharedMaterial)
+				Destroy(renderer.sharedMaterial);
+			Destroy(t.gameObject);
+		}
+		if (mesh)
+			Destroy(mesh);
+
+		mesh = _CreateMesh();
 		_CreatePlane( mesh, "_FrontTex", Quaternion.identity );
 		_CreatePlane( mesh, "_LeftTex",  Quaternion.Euler( 0.0f, 90.0f, 0.0f ) );
 		_CreatePlane( mesh, "_BackTex",  Quaternion.Euler( 0.0f, 180.0f, 0.0f ) );

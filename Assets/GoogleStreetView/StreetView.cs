@@ -10,7 +10,12 @@ public class StreetView : MonoBehaviour {
 
 	public Transform cam;
 
-	IEnumerator Start() {
+	public void Load() {
+		StartCoroutine(LoadImages());
+	}
+
+	IEnumerator LoadImages() {
+		Debug.Log ("Loading location " + location);
 		object[][] directions = new object[][] {
 			new object[] {  0,  0, "_FrontTex"},
 			new object[] { 90,  0, "_LeftTex"},
