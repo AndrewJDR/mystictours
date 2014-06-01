@@ -31,6 +31,7 @@ public class Tour : MonoBehaviour {
 //	}
 
 	public void Init() {
+		PlayerPrefs.SetInt("current_location", 0);
 		ChangeLocation();
 	}
 
