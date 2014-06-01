@@ -26,8 +26,11 @@ public class StreetView : MonoBehaviour {
 		};
 
 		foreach (object[] dir in directions) {
-			string path = "Cache/" + location.Replace(",", "_") + (string)dir[2];
-			string cachePath = Application.temporaryCachePath + "/" + location.Replace(",", "_") + (string)dir[2] + ".png";
+			ArrayList allParams = new ArrayList();
+			allParams.AddRange(location.Split('&'));
+			string locationParam = (string)allParams[0];
+			string path = "Cache/" + locationParam.Replace(",", "_") + (string)dir[2];
+			string cachePath = Application.temporaryCachePath + "/" + locationParam.Replace(",", "_") + (string)dir[2] + ".png";
 
 			#if UNITY_EDITOR
 			if (!Directory.Exists("Assets/Resources"))
@@ -41,7 +44,7 @@ public class StreetView : MonoBehaviour {
 			if (tex == null) {
 
 				if (File.Exists(cachePath)) {
-					Debug.Log(cachePath);
+					Debug.Log("Reading from cache " + cachePath);
 					// read from cache
 					tex = new Texture2D(2, 2);
 					tex.LoadImage(File.ReadAllBytes(cachePath));
@@ -68,7 +71,8 @@ public class StreetView : MonoBehaviour {
 	}
 
 	string GetURL(int heading, int pitch) {
-		return "http://maps.googleapis.com/maps/api/streetview?size=2048x2048&location=" + location + "&heading=" + heading + "&pitch=" + pitch + "&sensor=false&key=AIzaSyDwBD-NA5aTL2ICnoxwmRlvNK__IdE5_v0";
+		Debug.Log("Pulling from URL" + "http://maps.googleapis.com/maps/api/streetview?size=2048x2048&heading=" + heading + "&pitch=" + pitch + "&location=" + location + "&sensor=false&key=AIzaSyDwBD-NA5aTL2ICnoxwmRlvNK__IdE5_v0");
+		return "http://maps.googleapis.com/maps/api/streetview?size=2048x2048&heading=" + heading + "&pitch=" + pitch + "&location=" + location + "&sensor=false&key=AIzaSyDwBD-NA5aTL2ICnoxwmRlvNK__IdE5_v0";
 	}
 
 
