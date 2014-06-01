@@ -858,11 +858,13 @@ MonoBehaviour:
     audio: {fileID: 8300000, guid: 6ca74a68fdcb843a184061e020b7b7a2, type: 3}
     ambient: {fileID: 8300000, guid: 510e48e6a56a94c75914cf4ed443be74, type: 3}
     ambientVolume: .490999997
+    pointsPrefab: {fileID: 100002, guid: 4620db8c1978049f5aa01469bf354969, type: 2}
   - name: Pisa
     location: 43.722428,10.396658
     audio: {fileID: 8300000, guid: c387ff1c8284645c1b8ed9bff4f8993c, type: 3}
     ambient: {fileID: 8300000, guid: 510e48e6a56a94c75914cf4ed443be74, type: 3}
     ambientVolume: 1
+    pointsPrefab: {fileID: 0}
 --- !u!1 &1149530204
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Tour : MonoBehaviour {
 	AudioSource audioSource, ambientAudioSource;
+	GameObject prefabInstance;
 
 	[System.Serializable]
 	public class Location {
@@ -11,6 +12,7 @@ public class Tour : MonoBehaviour {
 		public AudioClip audio, ambient;
 		[Range(0, 1)]
 		public float ambientVolume = 1f;
+		public GameObject pointsPrefab;
 	}
 
 	public Location[] locations;
@@ -82,5 +84,11 @@ public class Tour : MonoBehaviour {
 		StreetView streetView = GetComponent<StreetView>();
 		streetView.location = locations[currentIndex].location;
 		streetView.Load();
+		if (prefabInstance) {
+			Destroy(prefabInstance);
+			prefabInstance = null;
+		}
+		if (locations[currentIndex].pointsPrefab)
+			prefabInstance = (GameObject)Instantiate(locations[currentIndex].pointsPrefab);
 	}
 }
